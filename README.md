@@ -4,24 +4,15 @@
 
 Git and filesystem linter. Install the `svet-cli` npm package; the commands are `svet` and `git svet`.
 
+Read [Introducing Svet: A Git Repository Linter](https://code.dblock.org/2026/10/31/introducing-svet-a-git-repository-linter.html) for the motivation and examples.
+
 ## Usage
 
-Requires Node.js 22.18+; the default checks also require Git 2.31+. Set up a new project:
+Requires Node.js 22.18+; the default checks also require Git 2.31+. Install and run it in an existing Git repository:
 
 ```sh
-mkdir my-project
-cd my-project
-git init
-npm init -y
 npm install --save-dev svet-cli@0.1.0
-npm pkg set scripts.check=svet
-```
-
-Add `node_modules/` to `.gitignore`, then stage your project files and check them:
-
-```sh
-git add .
-npm run check
+npx --no-install svet
 ```
 
 No Svet configuration is needed. By default, Svet selects Git-tracked text files and checks their **working-tree contents** for LF line endings. Untracked files are not checked; stage new files to include them. Ordinary checks never edit files. Use `svet --fix` to apply supported working-tree fixes and recheck; Svet never stages changes.
@@ -41,9 +32,6 @@ To check what a commit will contain, use `svet --precommit`, or `svet --precommi
 Example output with CRLF line endings in `bad.txt`:
 
 ```text
-> my-project@1.0.0 check
-> svet
-
 Configuration: (defaults)
 Profile: (base)
 Files: git/tracked-text (selected)
