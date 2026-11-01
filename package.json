@@ -64,6 +64,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "eslint": "10.13.0",
+    "eslint-plugin-portable-paths": "https://github.com/dblock/eslint-plugin-portable-paths/archive/cfb89772b995f8c7e3a3cad29423ccb2331beb70.tar.gz",
     "globals": "16.5.0",
     "prettier": "3.9.10"
   }
